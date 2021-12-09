@@ -7,7 +7,7 @@
                     
 
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg">
                           <?= form_error('barang','<div class="alert alert-danger" role="alert">','</div>');?>
 
                           <?= $this->session->flashdata('pesan'); ?>
@@ -15,7 +15,7 @@
                         <table class="table table-hover fa-fw">
                     <thead>
                         <tr class="bg-success text-white">
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Action</th>
 
@@ -28,7 +28,8 @@
                         <th scope="row"><?= $i; ?></th>
                         <td><?=$m['menu'];?></td>
                         <td>
-                            <a href="<?= base_url()?>menu/hapus/<?=$m['id']?>" class="badge rounded-pill bg-danger text-white col-3 p-2" onclick="return confirm('yakin mau dihapus ?');">Delete</a>
+                            <a href="<?= base_url()?>menu/hapus/<?=$m['id']?>" class="badge rounded-pill bg-danger text-white col-4 p-2" onclick="return confirm('yakin mau dihapus ?');">Delete</a>
+                            
                         </td>
                         </tr>
 

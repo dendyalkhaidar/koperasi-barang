@@ -43,7 +43,6 @@ class Menu extends CI_Controller {
 
 
     }
-
     public function hapus($id){
 
         $this->db->where('id',$id);
@@ -103,6 +102,40 @@ class Menu extends CI_Controller {
         $this->db->delete('user_sub_menu');
         redirect('menu/submenu');
         }
+
+      public function edit($id){
+        $data['title']= 'Edit SubMenu';
+        $data['user']=$this->db->get_where('user',['email'=> $this->session->userdata('email')])->row_array();
+        $this->load->model('ubah_submenu','us' );
+        $data['edit']=$this->us->ganti($id);
+
+        $this->form_validation->set_rules('title','Barang', 'required');
+        $this->form_validation->set_rules('menu_id','menu_id', 'required');
+        $this->form_validation->set_rules('url','Harga Jual', 'required');
+        $this->form_validation->set_rules('icon','icon', 'required');
+        $this->form_validation->set_rules('is_active','is_active', 'required');
+
+        if  ($this->form_validation->run()== false) {   
+            $this->load->view('templates/header',$data);
+            $this->load->view('templates/sidebar',$data);
+            $this->load->view('templates/topbar',$data);
+            $this->load->view('menu/edit',$data);
+            $this->load->view('templates/footer');
+             } else{
+             $data=[
+                'title'=> $this->input-> post('title'),
+                'menu_id'=> $this->input-> post('menu_id'),
+                'url'=> $this->input-> post('url'),
+                'icon'=> $this->input-> post('icon'),
+                'is_active'=> $this->input-> post('is_active'),
+                
+            ];
+            $this->db->where('id',$this->input-> post('id'));
+            $this->db->update('user_sub_menu',$data);
+            $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data berhasil di update</div>');
+            redirect('menu/submenu');
+        }
+    }
 
 
 

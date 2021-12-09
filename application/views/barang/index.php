@@ -1,7 +1,6 @@
 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800"><?= $title;?></h1>
                      <?php if(validation_errors()):?>
                                 <div class="alert alert-danger col-lg-4" role="alert">
                                 <?=validation_errors();?>
@@ -10,7 +9,7 @@
                      <div class="row">
                         <div class="col-lg">
                            <?= $this->session->flashdata('pesan'); ?>
-                          <a href="menu" class="btn btn-primary mb-3" data-toggle="modal" data-target="#NewBarangModal">Daftar Barang</a>
+                          <a href="menu" class="btn btn-primary mb-3" data-toggle="modal" data-target="#NewBarangModal">Tambah</a>
                           <table class="table table-hover fa-fw ">
                     <thead>
                         <tr class="bg-success text-white">

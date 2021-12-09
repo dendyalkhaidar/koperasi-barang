@@ -4,6 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Auth extends CI_Controller {
     public function index()
     {
+        if ($this->session->userdata('email')) {
+            redirect('user');
+            
+        }
         $this->form_validation->set_rules('email','Email','required|trim|valid_email');
         $this->form_validation->set_rules('password','Password','required|trim');
 
@@ -66,6 +70,10 @@ class Auth extends CI_Controller {
     }
     public function registration()
     {
+          if ($this->session->userdata('email')) {
+            redirect('user');
+            
+        }
         $this->form_validation->set_rules('name','Name','required|trim');
         $this->form_validation->set_rules('email','Email','required|trim|valid_email|is_unique[user.email]',[
             'is_unique'=>'this email has already registered!'

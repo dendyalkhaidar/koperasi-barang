@@ -100,6 +100,7 @@ class Barang extends CI_Controller {
             ];
             $this->db->where('id',$this->input-> post('id'));
             $this->db->update('user_barang',$data);
+            $this->session->set_flashdata('pesan','<div class="alert alert-success" role="alert">Data berhasil di update</div>');
             redirect('barang');
         }
             

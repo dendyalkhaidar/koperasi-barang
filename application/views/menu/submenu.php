@@ -2,11 +2,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800"><?= $title;?></h1>
-
-                    
-
-                    <div class="row">
+                  <div class="row">
                         <div class="col-lg">
                              <?php if(validation_errors()):?>
                                 <div class="alert alert-danger col-lg-4" role="alert">
@@ -19,7 +15,7 @@
                         <table class="table table-hover fa-fw">
                     <thead>
                         <tr class="bg-success text-white">
-                        <th scope="col">#</th>
+                        <th scope="col">No</th>
                         <th scope="col">Title</th>
                         <th scope="col">Menu</th>
                         <th scope="col">Url</th>
@@ -40,7 +36,9 @@
                         <td><?=$sm['icon'];?></td>
                         <td><?=$sm['is_active'];?></td>
                         <td>
-                            <a href="<?= base_url()?>menu/delete/<?=$sm['id']?>" class="badge rounded-pill bg-danger text-white col-7 p-2" onclick="return confirm('yakin mau dihapus ?');">Delete</a>
+                            <a href="<?= base_url()?>menu/delete/<?=$sm['id']?>" class="badge rounded-pill bg-danger text-white col-7 p-2 " onclick="return confirm('yakin mau dihapus ?');">Delete</a>
+                            <a href="<?= base_url()?>menu/edit/<?=$sm['id']?>" class="badge rounded-pill bg-primary text-white col-7 p-2 mt-2">Edit</a>
+                        </td>
                         </td>
                         </tr>
 
